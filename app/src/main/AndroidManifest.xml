@@ -28,7 +28,9 @@
 
         <activity android:name=".ForgotPasswordActivity"
             android:exported="false"/>
-
+        <activity android:name=".SupportChatActivity"/>
+        <activity android:name=".AdminSupportActivity"/>
+        <activity android:name=".AdminChatActivity"/>
     </application>
 
 </manifest>

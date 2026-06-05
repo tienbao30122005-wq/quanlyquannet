@@ -59,6 +59,19 @@ public class fragment_person extends Fragment {
 
         // Bấm vào tên → đổi tên
         tvUsername.setOnClickListener(v -> showEditNameDialog());
+        LinearLayout rowSupport = view.findViewById(R.id.rowSupport);
+
+        rowSupport.setOnClickListener(v -> {
+            userRef.child("role").get().addOnSuccessListener(snapshot -> {
+                String role = snapshot.getValue(String.class);
+                if ("admin".equals(role)) {
+                    startActivity(new Intent(getActivity(), AdminSupportActivity.class));
+                } else {
+                    startActivity(new Intent(getActivity(), SupportChatActivity.class));
+                }
+            });
+
+        });
 
         // Đổi mật khẩu
         LinearLayout rowChangePass = view.findViewById(R.id.rowChangePass);
